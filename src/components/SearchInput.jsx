@@ -26,7 +26,8 @@ const SearchInput = () => {
         className="grow outline-0 text-black/[0.87]"
       />
       <div className="flex items-center gap-3">
-        
+        <img className="h-6 w-6 cursor-pointer" src={MicIcon}/>
+        <img className="h-6 w-6 cursor-pointer" src={ImageIcon}/>
       </div>
     </div>
   );
