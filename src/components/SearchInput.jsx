@@ -7,7 +7,29 @@ import MicIcon from "../assets/mic.svg";
 import ImageIcon from "../assets/image.svg";
 
 const SearchInput = () => {
-    return <div>Search input</div>;
+    const [searchQuery, setSearchQuery] = useState("");
+
+  return (
+    <div
+      id="searchBox"
+      className="h-[46px] w-full md:w-[584px] flex items-center gap-3 
+    px-4 border border-[#dfe1e5] rounded-3xl hover:bg-white hover:shadow-c hover:border-0 focus-within:shadow-c 
+    focus-within:border-0"
+    >
+      <AiOutlineSearch size={18} color="#9aa0a6" />
+      <input
+        type="text"
+        onChange={(e) => console.log(e.target.value)}
+        onKeyUp={(e) => console.log(e.target.value)}
+        value={searchQuery}
+        autoFocus
+        className="grow outline-0 text-black/[0.87]"
+      />
+      <div className="flex items-center gap-3">
+        
+      </div>
+    </div>
+  );
 };
 
 export default SearchInput;
