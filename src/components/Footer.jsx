@@ -7,7 +7,7 @@ const Footer = () => {
                 United Kingdom
             </span>
         </div>
-        <div className="flex flex-col md:flex-row justify-between py-3 md:py-0 md:px-[15px">
+        <div className="flex flex-col md:flex-row justify-between py-3 md:py-0 md:px-[15px]">
             <div className="flex justify-items-center">
                 {quickLinks.map((menu, index) =>(
                     <span key={index} className="text-[#70757a] text-[12px] md:text-[14px] leading-none p-[10px] md:p[15px]">
