@@ -9,8 +9,16 @@ import { menu } from "../utils/Constants";
 
 const SearchResultHeader = () => {
   const [selectedMenu, setSelectedMenu] = useState("All");
+  const { setImageSearch } = useContext(Context);
+
+  useEffect(() => {
+    return () => setImageSearch(false);
+  }, []);
+
   const ClickHandler = (menuItem) => {
+    let isTypeImage = menuItem.name === "Images";
     setSelectedMenu(menuItem.name);
+    setImageSearch(isTypeImage ? true : false);
   };
 
   return (
@@ -20,7 +28,9 @@ const SearchResultHeader = () => {
     >
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center grow">
-          <img className="hidden md:block w-[92px] mr-10" src={Logo} />
+          <Link to="/">
+            <img className="hidden md:block w-[92px] mr-10" src={Logo} />
+          </Link>
           <SearchInput from="searchResult" />
         </div>
         <div className="hidden md:block">
@@ -37,12 +47,10 @@ const SearchResultHeader = () => {
             }`}
             onClick={() => ClickHandler(menu)}
           >
-            <span className="hidden md:block mr-2">
-                {menu.icon}
-                </span>
+            <span className="hidden md:block mr-2">{menu.icon}</span>
             <span className="text-sm">{menu.name}</span>
             {selectedMenu === menu.name && (
-                <span className="h-[3px] w-[calc(100%-20px)] absolute bg-[#1a73e8] bottom-0 left-[10px]"/>
+              <span className="h-[3px] w-[calc(100%-20px)] absolute bg-[#1a73e8] bottom-0 left-[10px]" />
             )}
           </span>
         ))}
