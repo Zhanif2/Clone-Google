@@ -8,7 +8,7 @@ const params = {
 };
 
 export const fetchDataFromApi = async (payload) => {
-  const { data } = await axiox.get(BASE_URL, {
+  const { data } = await axios.get(BASE_URL, {
     params: { ...params, ...payload },
   });
   return data;
