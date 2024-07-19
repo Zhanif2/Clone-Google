@@ -29,9 +29,8 @@ const SearchResult = () => {
     });
   };
 
-
   if (!result) return;
-  const {items, queries, searchInformation} = result;
+  const { items, queries, searchInformation } = result;
 
   return (
     <div className="flex flex-col min-h-[100vh]">
@@ -40,16 +39,17 @@ const SearchResult = () => {
         <div className="flex text-sm text-[#70757a] mb-3">
           {`About ${searchInformation.formattedTotalResults} results in (${searchInformation.formattedSearchTime})`}
         </div>
-        {!imageSearch ? (<>
-        {items.map((item, index) => (
-          <SearchedItemTemplate key={index} data={item}/>
-        ))}
-        
-        </>) : (
+        {!imageSearch ? (
+          <>
+            {items.map((item, index) => (
+              <SearchedItemTemplate key={index} data={item} />
+            ))}
+          </>
+        ) : (
           <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 ">
             {items.map((item, index) => (
-          <SearchedImageItemTemplate key={index} data={item}/>
-        ))}
+              <SearchedImageItemTemplate key={index} data={item} />
+            ))}
           </div>
         )}
       </main>
